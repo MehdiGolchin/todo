@@ -1,0 +1,15 @@
+import (Numeric, NumericOptions) from 'numeric'
+
+render options =
+    options
+    | Numeric
+    | subscribe updateValue
+
+updateValue action (value) opt =
+    action
+    ? INCREASE = value + 1
+    ? DECREASE = value - 1
+    | render opt
+
+export main () =
+    render NumericOptions (value = 0)

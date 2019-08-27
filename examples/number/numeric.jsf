@@ -1,0 +1,10 @@
+import {DOM} from 'dom'
+
+export type NumericOptions = (value: Number)
+
+export Numeric (options: NumericOptions) = DOM (dispatch)
+    <div>
+        <button onclick={dispatch INCREASE}>Increase</button>
+        <label>{options.value}</label>
+        <button onclick={dispatch DECREASE}>Decrease</button>
+    </div>

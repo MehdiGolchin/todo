@@ -1,0 +1,9 @@
+import (WindowArgs) from 'window';
+import (TodoApp) from 'app';
+import (TodoColumn, InProgressColumn, DoneColumn) from 'columns';
+
+export main (args: WindowArgs) =>
+    TodoApp({
+        title: 'Todo sample app',
+        columns: [ TodoColumn, InProgressColumn, DoneColumn ]
+    });

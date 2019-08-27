@@ -1,0 +1,19 @@
+import (TaskState, TODO, INPROGRESS, DONE) from 'task';
+import (map) from 'data';
+
+export type ColumnOptions = (name: string, title: string, state: TaskState);
+export type ColumnsOptions = (tasks: [TaskDetails], columns: [ColumnOptions], loaded: bool);
+
+export let TodoColumn = ColumnOptions 'Todo', 'Todo', TODO;
+export let InProgressColumn = ColumnOptions 'InProgress', 'In-progress', INPROGRESS;
+export let DoneColumn = ColumnOptions 'Done', 'Done', DONE;
+
+export Column (tasks: [TaskDetails], options: ColumnOptions) => (
+    <div>
+        <h4>{options.title}</h4>
+        {TaskList tasks}
+    </div>
+)
+
+export Columns (options: ColumnsOptions) => 
+    map (Column tasks) options
